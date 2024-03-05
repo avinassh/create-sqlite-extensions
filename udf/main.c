@@ -2,13 +2,8 @@
 
 #include <stdio.h>
 
-
-const char *greet() {
-  return "Hello, World!";
-}
-
 static void hello_world(sqlite3_context *context, int argc, sqlite3_value **argv) {
-  sqlite3_result_text(context, greet(), -1, SQLITE_TRANSIENT);
+  sqlite3_result_text(context, "Hello, World!", -1, SQLITE_TRANSIENT);
 }
 
 int main() {
