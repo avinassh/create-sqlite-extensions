@@ -29,7 +29,7 @@ int main() {
   }
   // run a query that calls our hello function
   sqlite3_stmt *stmt;
-  rc = sqlite3_prepare_v2(db, "SELECT hello();", -1, &stmt, NULL);
+  rc = sqlite3_prepare_v2(db, "SELECT hello(\"v\");", -1, &stmt, NULL);
   if (rc != SQLITE_OK) {
     fprintf(stderr, "failed to prepare query: %s\n", sqlite3_errmsg(db));
     sqlite3_close(db);
