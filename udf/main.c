@@ -21,7 +21,7 @@ int main() {
   }
 
   // register our hello function
-  rc = sqlite3_create_function(db, "hello", 0, SQLITE_UTF8, NULL, hello_world, NULL, NULL);
+  rc = sqlite3_create_function(db, "hello", 1, SQLITE_UTF8, NULL, hello_world, NULL, NULL);
   if (rc != SQLITE_OK) {
     fprintf(stderr, "failed to register hello function: %s\n", sqlite3_errmsg(db));
     sqlite3_close(db);
