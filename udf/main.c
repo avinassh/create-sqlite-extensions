@@ -1,9 +1,14 @@
 #include "sqlite3.h"
 
 #include <stdio.h>
+#include <assert.h>
 
 static void hello_world(sqlite3_context *context, int argc, sqlite3_value **argv) {
-  sqlite3_result_text(context, "Hello, World!", -1, SQLITE_TRANSIENT);
+  assert(argc == 1);
+  const char *input = (const char *) sqlite3_value_text(argv[0]);
+  char *result = sqlite3_mprintf("Hello, %s!", input);
+  sqlite3_result_text(context, result, -1, SQLITE_TRANSIENT);
+  sqlite3_free(result);
 }
 
 int main() {
