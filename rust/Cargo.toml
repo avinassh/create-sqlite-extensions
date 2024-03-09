@@ -10,3 +10,4 @@ crate-type = ["cdylib"]
 
 [dependencies]
 libc = "0.2.153"
+libsql-ffi = "0.2.1"
